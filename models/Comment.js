@@ -9,10 +9,13 @@ const ReplySchema = new Schema(
             default: () => new Types.ObjectId()
         },
         replyBody: {
-            type: String
+            type: String,
+            required: 'Reply must be at least 1 character.',
+            trim: true
         },
         writtenBy: {
-            type: String
+            type: String,
+            required: 'Author name is required.'
         },
         createdAt: {
             type: Date,
@@ -29,10 +32,12 @@ const ReplySchema = new Schema(
 
 const CommentSchema = new Schema({
     writtenBy: {
-        type: String
+        type: String,
+        required: 'Author name is required'
     },
     commentBody: {
-        type: String
+        type: String,
+        required: 'Comment must be at least 1 character.'
     },
     createdAt: {
         type: Date,

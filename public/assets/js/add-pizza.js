@@ -67,6 +67,8 @@ const handlePizzaSubmit = event => {
     })
     .catch(err => {
       console.log(err);
+      //save the attempted submission with IndexedDB
+      saveRecord(formData);
     });
 };
 
